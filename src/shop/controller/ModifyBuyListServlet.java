@@ -26,15 +26,12 @@ public class ModifyBuyListServlet extends HttpServlet{
 
         request.setCharacterEncoding("utf-8");
 
-        BuyList buyList = new BuyList();
         try {
-            buyList.setUserId(UserLoginServlet.getLoginId(request,response));
-            buyList.setProductId(Integer.valueOf(request.getParameter("id")));
-            buyList.setProductNum(Integer.valueOf(request.getParameter("quantity")));
-            buyList.setState(0);
+            int state = Integer.valueOf(request.getParameter("state"));
+            int id = Integer.valueOf(request.getParameter("id"));
 
-            System.out.println(buyList.getUserId() + "" + buyList.getProductId());
-            BuyListRepository.getInstance().addBuyList(connection, buyList);
+            BuyListRepository.getInstance().modifyBuyList(connection, id, state);
+
         } catch (Exception e) {
             e.printStackTrace();
             MyConnection.connException(connection);
@@ -42,6 +39,6 @@ public class ModifyBuyListServlet extends HttpServlet{
 
         MyConnection.endConnection(connection);
 
-        response.sendRedirect("/shop/buyList");
+        response.sendRedirect("/admin/buyList");
     }
 }

@@ -1,7 +1,7 @@
 package shop.repository;
 
-import myboard.entity.Board;
-import myboard.repository.BoardRepository;
+import shop.entity.Product;
+import shop.myConnection.MyConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,114 +11,84 @@ import java.util.List;
  * Created by bungubbang
  * Email: bungubbang57@gmail.com
  */
-public class ProductRepository implements BoardRepository {
+public class ProductRepository {
 
     private static ProductRepository instance = new ProductRepository();
 
     public static ProductRepository getInstance() {
         return instance;
     }
+    private ProductRepository() {}
 
-    private String url = "jdbc:postgresql://localhost:5432/study";
-    private String usr = "study";
-    private String pwd = "1234";
-
-    @Override
-    public List<Board> getBoards() {
-        List<Board> boards = new ArrayList<Board>();
-        try {
-            Connection connection = DriverManager.getConnection(url, usr, pwd);
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from board order by id desc");
-            while (resultSet.next()) {
-                Board board = new Board();
-                board.setId(resultSet.getInt("id"));
-                board.setWriter(resultSet.getString("writer"));
-                board.setPw(resultSet.getString("pw"));
-                board.setTitle(resultSet.getString("title"));
-                board.setContent(resultSet.getString("content"));
-
-                boards.add(board);
-            }
-
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return boards;
+    public int hashCode() {
+        return super.hashCode();    //To change body of overridden methods use File | Settings | File Templates.
     }
 
-    @Override
-    public Board FindById(int id) {
-        Board board = new Board();
-        try {
-            Connection connection = DriverManager.getConnection(url, usr, pwd);
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from board where id=?");
-            preparedStatement.setInt(1, id);
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
+    public List<Product> getProducts(Connection connection) throws Exception {
+        List<Product> products = new ArrayList<Product>();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("select * from shopproduct order by id desc");
+        while (resultSet.next()) {
 
-            board.setId(resultSet.getInt("id"));
-            board.setWriter(resultSet.getString("writer"));
-            board.setPw(resultSet.getString("pw"));
-            board.setTitle(resultSet.getString("title"));
-            board.setContent(resultSet.getString("content"));
+            Product product = new Product();
+            product.setId(resultSet.getInt("id"));
+            product.setName(resultSet.getString("name"));
+            product.setPrice(resultSet.getInt("price"));
+            product.setState(resultSet.getInt("state"));
+            product.setQuantity(resultSet.getInt("quantity"));
 
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("product call    " + product);
+
+            products.add(product);
         }
-        return board;
+        return products;
     }
 
-    @Override
-    public void addBoard(Board board) {
-        try {
-            Connection connection = DriverManager.getConnection(url, usr, pwd);
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO board(writer, pw, title, content) VALUES (?, ?, ?, ?)");
-            preparedStatement.setString(1, board.getWriter());
-            preparedStatement.setString(2, board.getPw());
-            preparedStatement.setString(3, board.getTitle());
-            preparedStatement.setString(4, board.getContent());
+    
+    public Product FindById(Connection connection, int id) throws Exception {
+        Product product = new Product();
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from shopproduct where id=?");
+        preparedStatement.setInt(1, id);
 
-            preparedStatement.executeUpdate();
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
 
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        product.setId(resultSet.getInt("id"));
+        product.setPrice(resultSet.getInt("price"));
+        product.setState(resultSet.getInt("state"));
+        product.setName(resultSet.getString("name"));
+        product.setQuantity(resultSet.getInt("quantity"));
+        return product;
     }
 
-    @Override
-    public void modifyBoard(Board board) {
-        try {
-            Connection connection = DriverManager.getConnection(url, usr, pwd);
-            PreparedStatement preparedStatement = connection.prepareStatement("update board set writer=?, pw=?, title=?, content=? where id=?");
-            preparedStatement.setString(1, board.getWriter());
-            preparedStatement.setString(2, board.getPw());
-            preparedStatement.setString(3, board.getTitle());
-            preparedStatement.setString(4, board.getContent());
-            preparedStatement.setInt(5, board.getId());
+    
+    public void addProduct(Connection connection, Product product) throws Exception {
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO shopproduct(name, state, price, quantity) VALUES (?, ?, ?, ?)");
+        preparedStatement.setString(1, product.getName());
+        preparedStatement.setInt(2, product.getState());
+        preparedStatement.setInt(3, product.getPrice());
+        preparedStatement.setInt(4, product.getQuantity());
 
-            preparedStatement.executeUpdate();
-
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        preparedStatement.executeUpdate();
     }
 
-    @Override
-    public void deleteBoard(int id) {
-        try {
-            Connection connection = DriverManager.getConnection(url, usr, pwd);
-            PreparedStatement preparedStatement = connection.prepareStatement("delete from board where id=?");
-            preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    
+    public void modifyProduct(Connection connection, Product product) throws Exception {
+        PreparedStatement preparedStatement = connection.prepareStatement("update shopproduct set name=?, state=?, price=?, quantity=? where id=?");
+        preparedStatement.setString(1, product.getName());
+        preparedStatement.setInt(2, product.getState());
+        preparedStatement.setInt(3, product.getPrice());
+        preparedStatement.setInt(4, product.getQuantity());
+        preparedStatement.setInt(5, product.getId());
+
+        preparedStatement.executeUpdate();
+    }
+
+    
+    public void deleteProduct(Connection connection, int id) throws Exception {
+        PreparedStatement preparedStatement = connection.prepareStatement("delete from shopproduct where id=?");
+        preparedStatement.setInt(1, id);
+        preparedStatement.executeUpdate();
     }
 }

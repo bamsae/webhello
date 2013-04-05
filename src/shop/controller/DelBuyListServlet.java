@@ -26,10 +26,9 @@ public class DelBuyListServlet extends HttpServlet{
         request.setCharacterEncoding("utf-8");
 
         try {
-            int state = Integer.valueOf(request.getParameter("state"));
             int id = Integer.valueOf(request.getParameter("id"));
 
-            BuyListRepository.getInstance().modifyBuyList(connection, id, state);
+            BuyListRepository.getInstance().deleteBuyList(connection, id);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,6 +37,9 @@ public class DelBuyListServlet extends HttpServlet{
 
         MyConnection.endConnection(connection);
 
-        response.sendRedirect("/admin/buyList");
+        if(request.getParameter("from").equals("admin"))
+            response.sendRedirect("/admin/buyList");
+        else
+            response.sendRedirect("/shop/buy");
     }
 }

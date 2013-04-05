@@ -5,6 +5,11 @@
     <title></title>
   </head>
   <body>
-   결과물22332= <%= request.getAttribute("calculate") %>
+    <%
+
+        Date date = new Date();
+        String name = request.getParameter("name");
+        out.write("hello=" + name + " time=" + date.toString());
+    %>
   </body>
 </html>

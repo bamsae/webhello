@@ -17,7 +17,7 @@ public class UserDBRepository implements UserRepository{
     }
 
     private String url = "jdbc:postgresql://localhost:5432/study";
-    private String usr = "jsp";
+    private String usr = "study";
     private String pwd = "1234";
 
     @Override

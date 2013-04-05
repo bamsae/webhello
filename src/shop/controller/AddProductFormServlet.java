@@ -1,6 +1,7 @@
 package shop.controller;
 
 import myboard.controller.BoardLoginServlet;
+import shop.repository.UserRepository;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,11 +21,11 @@ public class AddProductFormServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        if(!BoardLoginServlet.checkLogin(request,response)) {
+        if(!"admin".equals(UserLoginServlet.checkLogin(request,response))) {
             return;
         }
 
-        RequestDispatcher view = request.getRequestDispatcher("/board/boardCreate.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/shop/addProduct.jsp");
         view.forward(request, response);
     }
 }

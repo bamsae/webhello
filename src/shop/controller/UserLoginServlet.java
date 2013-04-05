@@ -1,8 +1,9 @@
 package shop.controller;
 
-import myboard.entity.User;
-import myboard.repository.UserDBRepository;
-import myboard.repository.UserRepository;
+
+import shop.entity.User;
+import shop.myConnection.MyConnection;
+import shop.repository.UserRepository;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -12,17 +13,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
 
 /**
  * Created with IntelliJ IDEA.
  * User: bungubbang
  * Date: 13. 3. 7.
  * Time: 오후 7:51
- * To change this template use File | Settings | File Templates.
+ * To change this template use File | Setøtings | File Templates.
  */
 public class UserLoginServlet extends HttpServlet{
 
-    UserRepository userRepository = UserDBRepository.getInstance();
+    UserRepository userRepository = UserRepository.getInstance();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -35,12 +37,33 @@ public class UserLoginServlet extends HttpServlet{
         }
 
         System.out.println("checkckcck2");
-        RequestDispatcher view = request.getRequestDispatcher("/board/login.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/shop/userLogin.jsp");
         view.forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        User user = userRepository.findById(request.getParameter("id"));
+        Connection connection = MyConnection.getConnection();
+        User user = null;
+        try {
+            user = userRepository.findByName(connection, request.getParameter("id"));
+            MyConnection.endConnection(connection);
+        } catch (Exception e) {
+            MyConnection.connException(connection);
+            Connection connection1 = MyConnection.getConnection();
+            user = new User();
+            user.setName(request.getParameter("id"));
+            user.setMoney(100000);
+            user.setPassword(request.getParameter("password"));
+            try {
+                userRepository.addUser(connection1, user);
+                System.out.println("makenew ididididididi");
+                MyConnection.endConnection(connection1);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+                MyConnection.connException(connection1);
+            }
+        }
+
         if(request.getParameter("rememberId") != null) {
             Cookie cookie = new Cookie("id", request.getParameter("id"));
             cookie.setMaxAge(30 * 24 * 60 * 60); // 한달
@@ -51,8 +74,24 @@ public class UserLoginServlet extends HttpServlet{
             response.addCookie(cookie);
         }
 
+        Connection connection2 = MyConnection.getConnection();
+        try {
+            user = UserRepository.getInstance().findByName(connection2, user.getName());
+            MyConnection.endConnection(connection2);
+        } catch (Exception e) {
+            MyConnection.connException(connection2);
+        }
         if( user.getPassword().equals(request.getParameter("password"))) {
-            request.getSession().setAttribute("isLogin", "ok");
+
+            if( "admin".equals(user.getName())) {
+                System.out.println("admin access");
+                response.sendRedirect("/admin/product");
+                request.getSession().setAttribute("isLogin", "admin");
+                return;
+            }
+            request.getSession().setAttribute("isLogin", user.getId());
+            System.out.println("userid : hahahahahahahah " + user.getId());
+
             ServletContext servletContext = request.getServletContext();
 
             // 현재 로그인 사용자 조사
@@ -64,22 +103,29 @@ public class UserLoginServlet extends HttpServlet{
             // loginCout를 얻어와서 1을 증가
             servletContext.setAttribute("loginCount", Integer.parseInt(String.valueOf(servletContext.getAttribute("loginCount"))) + 1 );
 
-            response.sendRedirect("/board/list");
+            response.sendRedirect("/shop/list");
         }
     }
 
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.getSession().removeAttribute("isLogin");
         ServletContext servletContext = request.getServletContext();
-        servletContext.setAttribute("loginCount", Integer.parseInt(String.valueOf(servletContext.getAttribute("loginCount"))) - 1 );
-        response.sendRedirect("/board/login");
+        servletContext.setAttribute("loginCount", Integer.parseInt(String.valueOf(servletContext.getAttribute("loginCount"))) - 1);
+        response.sendRedirect("/shop/login");
     }
 
-    public static boolean checkLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        if(request.getSession().getAttribute("isLogin") ==  null) {
-            response.sendRedirect("/board/login");
-            return false;
+    public static String checkLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String state = request.getSession().getAttribute("isLogin").toString();
+        if(state ==  null) {
+            response.sendRedirect("/shop/login");
+            return null;
         }
-        return true;
+        return state;
+    }
+    public static int getLoginId(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        if(checkLogin(request,response) != null) {
+            return Integer.valueOf(request.getSession().getAttribute("isLogin").toString());
+        }
+        return -1;
     }
 }

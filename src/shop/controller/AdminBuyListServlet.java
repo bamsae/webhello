@@ -26,13 +26,15 @@ public class AdminBuyListServlet extends HttpServlet{
     UserRepository userRepository = UserRepository.getInstance();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(!"admin".equals(UserLoginServlet.checkLogin(request, response))) {
+            return;
+        }
+
         Connection connection = MyConnection.getConnection();
 
         List<BuyList> buyLists = null;
         try {
-            int id = UserLoginServlet.getLoginId(request, response);
-
-            buyLists = BuyListRepository.getInstance().BuyListByUserId(connection, id);
+            buyLists = BuyListRepository.getInstance().BuyList(connection);
         } catch (Exception e) {
             e.printStackTrace();
             MyConnection.connException(connection);
@@ -40,7 +42,7 @@ public class AdminBuyListServlet extends HttpServlet{
 
         request.setAttribute("buyLists", buyLists);
 
-        RequestDispatcher view = request.getRequestDispatcher("/shop/buyList.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/shop/adminBuyList.jsp");
         view.forward(request,response);
 
         MyConnection.endConnection(connection);

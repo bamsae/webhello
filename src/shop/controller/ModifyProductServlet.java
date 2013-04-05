@@ -26,13 +26,14 @@ public class ModifyProductServlet extends HttpServlet{
 
         request.setCharacterEncoding("utf-8");
         Product product = new Product();
+        product.setId(Integer.valueOf(request.getParameter("id")));
         product.setName(request.getParameter("name"));
         product.setPrice(Integer.valueOf(request.getParameter("price")));
         product.setQuantity(Integer.valueOf(request.getParameter("quantity")));
         product.setState(Integer.valueOf(request.getParameter("state")));
 
         try {
-            ProductRepository.getInstance().addProduct(connection, product);
+            ProductRepository.getInstance().modifyProduct(connection, product);
         } catch (Exception e) {
             MyConnection.connException(connection);
         }

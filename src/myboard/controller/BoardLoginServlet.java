@@ -27,6 +27,7 @@ public class BoardLoginServlet extends HttpServlet{
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        System.out.println("checkckckck");
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if(cookie.getName().equals("id")) {
@@ -34,6 +35,7 @@ public class BoardLoginServlet extends HttpServlet{
             }
         }
 
+        System.out.println("checkckcck2");
         RequestDispatcher view = request.getRequestDispatcher("/board/login.jsp");
         view.forward(request, response);
     }
@@ -74,7 +76,7 @@ public class BoardLoginServlet extends HttpServlet{
         response.sendRedirect("/board/login");
     }
 
-    public static Boolean checkLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public static boolean checkLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
         if(request.getSession().getAttribute("isLogin") ==  null) {
             response.sendRedirect("/board/login");
             return false;

@@ -92,27 +92,141 @@
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 
-    <error-page>
-        <error-code>404</error-code>
-        <location>/board/error.jsp</location>
-    </error-page>
+    <!--<error-page>-->
+        <!--<error-code>404</error-code>-->
+        <!--<location>/board/error.jsp</location>-->
+    <!--</error-page>-->
 
-    <error-page>
-        <exception-type>java.lang.Throwable</exception-type>
-        <location>/board/error.jsp</location>
-    </error-page>
-    <error-page>
-        <exception-type>java.lang.Exception</exception-type>
-        <location>/board/error.jsp</location>
-    </error-page>
+    <!--<error-page>-->
+        <!--<exception-type>java.lang.Throwable</exception-type>-->
+        <!--<location>/board/error.jsp</location>-->
+    <!--</error-page>-->
+    <!--<error-page>-->
+        <!--<exception-type>java.lang.Exception</exception-type>-->
+        <!--<location>/board/error.jsp</location>-->
+    <!--</error-page>-->
+
+
+
+    <servlet>
+        <servlet-name>shopUserLoginServlet</servlet-name>
+        <servlet-class>shop.controller.UserLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>shopUserLoginServlet</servlet-name>
+        <url-pattern>/shop/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>adminProductServlet</servlet-name>
+        <servlet-class>shop.controller.AdminProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminProductServlet</servlet-name>
+        <url-pattern>/admin/product</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>adminBuyListServlet</servlet-name>
+        <servlet-class>shop.controller.AdminBuyListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminBuyListServlet</servlet-name>
+        <url-pattern>/admin/buyList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>modifyBuyListServlet</servlet-name>
+        <servlet-class>shop.controller.ModifyBuyListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>modifyBuyListServlet</servlet-name>
+        <url-pattern>/admin/modifyBuyList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>modifyProductFormServlet</servlet-name>
+        <servlet-class>shop.controller.ModifyProductFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>modifyProductFormServlet</servlet-name>
+        <url-pattern>/admin/modifyProductForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>delBuyListServlet</servlet-name>
+        <servlet-class>shop.controller.DelBuyListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delBuyListServlet</servlet-name>
+        <url-pattern>/shop/delBuyList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>modifyProductServlet</servlet-name>
+        <servlet-class>shop.controller.ModifyProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>modifyProductServlet</servlet-name>
+        <url-pattern>/admin/modifyProduct</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addProductFormServlet</servlet-name>
+        <servlet-class>shop.controller.AddProductFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addProductFormServlet</servlet-name>
+        <url-pattern>/shop/addProductForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addProductServlet</servlet-name>
+        <servlet-class>shop.controller.AddProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addProductServlet</servlet-name>
+        <url-pattern>/shop/addProduct</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProductListServlet</servlet-name>
+        <servlet-class>shop.controller.ProductListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductListServlet</servlet-name>
+        <url-pattern>/shop/list</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AddBuyListServlet</servlet-name>
+        <servlet-class>shop.controller.AddBuyListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddBuyListServlet</servlet-name>
+        <url-pattern>/shop/buy</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BuyListServlet</servlet-name>
+        <servlet-class>shop.controller.BuyListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuyListServlet</servlet-name>
+        <url-pattern>/shop/buyList</url-pattern>
+    </servlet-mapping>
+
+
+
+
 
     <filter>
         <filter-name>requestFilter</filter-name>
-        <filter-class>myboard.filter.EncodeFilter</filter-class>
+        <filter-class>filter.EncodeFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>requestFilter</filter-name>
-        <url-pattern>/board/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
 </web-app>

@@ -1,8 +1,12 @@
 package shop.controller;
 
+import shop.entity.BuyList;
 import shop.entity.Product;
+import shop.entity.User;
 import shop.myConnection.MyConnection;
+import shop.repository.BuyListRepository;
 import shop.repository.ProductRepository;
+import shop.repository.UserRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,24 +25,40 @@ import java.sql.Connection;
 public class AddBuyListServlet extends HttpServlet{
 
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Connection connection = MyConnection.getConnection();
 
         request.setCharacterEncoding("utf-8");
-        Product product = new Product();
-        product.setName(request.getParameter("name"));
-        product.setPrice(Integer.valueOf(request.getParameter("price")));
-        product.setQuantity(Integer.valueOf(request.getParameter("quantity")));
-        product.setState(Integer.valueOf(request.getParameter("state")));
+
+        BuyList buyList = new BuyList();
+        Product product = null;
+        User user = null;
 
         try {
-            ProductRepository.getInstance().addProduct(connection, product);
+            int buyquantity = Integer.valueOf(request.getParameter("quantity"));
+
+            buyList.setUserId(UserLoginServlet.getLoginId(request,response));
+            buyList.setProductId(Integer.valueOf(request.getParameter("id")));
+            buyList.setProductNum(Integer.valueOf(request.getParameter("quantity")));
+            buyList.setState(0);
+
+            System.out.println(buyList.getUserId() + "" + buyList.getProductId());
+            BuyListRepository.getInstance().addBuyList(connection, buyList);
+
+            product = ProductRepository.getInstance().FindById(connection, Integer.valueOf(request.getParameter("id")));
+            product.setQuantity(product.getQuantity() - buyquantity);
+            ProductRepository.getInstance().modifyProduct(connection, product);
+
+            user = UserRepository.getInstance().findById(connection, UserLoginServlet.getLoginId(request,response));
+            user.setMoney(user.getMoney() - buyquantity * product.getPrice());
+            UserRepository.getInstance().updateUser(connection,user);
         } catch (Exception e) {
+            e.printStackTrace();
             MyConnection.connException(connection);
         }
 
-        response.sendRedirect("/admin/product");
-
         MyConnection.endConnection(connection);
+
+        response.sendRedirect("/shop/buyList");
     }
 }

@@ -1,6 +1,7 @@
 package shop.controller;
 
 import shop.entity.Product;
+import shop.entity.User;
 import shop.myConnection.MyConnection;
 import shop.repository.ProductRepository;
 import shop.repository.UserRepository;
@@ -28,25 +29,22 @@ public class ProductListServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Connection connection = MyConnection.getConnection();
 
-        if(!"admin".equals(UserLoginServlet.checkLogin(request, response))) {
-            return;
-        }
-        System.out.println("admin done");
-
         List<Product> products = null;
+        User user = null;
+
         try {
             products = ProductRepository.getInstance().getProducts(connection);
+            user = UserRepository.getInstance().findById(connection, UserLoginServlet.getLoginId(request,response));
         } catch (Exception e) {
             MyConnection.connException(connection);
         }
 
         request.setAttribute("products", products);
-
-        System.out.println("testttt" + products);
-
-        RequestDispatcher view = request.getRequestDispatcher("/shop/adminProduct.jsp");
-        view.forward(request,response);
+        request.setAttribute("user", user);
 
         MyConnection.endConnection(connection);
+
+        RequestDispatcher view = request.getRequestDispatcher("/shop/productList.jsp");
+        view.forward(request,response);
     }
 }

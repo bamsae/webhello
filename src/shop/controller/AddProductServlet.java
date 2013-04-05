@@ -3,15 +3,13 @@ package shop.controller;
 import shop.entity.Product;
 import shop.myConnection.MyConnection;
 import shop.repository.ProductRepository;
-import shop.repository.UserRepository;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
+import java.sql.Connection;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,22 +20,25 @@ import java.util.List;
  */
 public class AddProductServlet extends HttpServlet{
 
-    UserRepository userRepository = UserRepository.getInstance();
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MyConnection.startConnection();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Connection connection = MyConnection.getConnection();
 
-        if(!"admin".equals(UserLoginServlet.checkLogin(request, response))) {
-            return;
+        request.setCharacterEncoding("utf-8");
+        Product product = new Product();
+        product.setName(request.getParameter("name"));
+        product.setPrice(Integer.valueOf(request.getParameter("price")));
+        product.setQuantity(Integer.valueOf(request.getParameter("quantity")));
+        product.setState(Integer.valueOf(request.getParameter("state")));
+
+        try {
+            ProductRepository.getInstance().addProduct(connection, product);
+        } catch (Exception e) {
+            MyConnection.connException(connection);
         }
 
-        List<Product> products = ProductRepository.getInstance().getProducts();
+        MyConnection.endConnection(connection);
 
-        request.setAttribute("products", products);
-
-        RequestDispatcher view = request.getRequestDispatcher("/shop/adminProduct.jsp");
-        view.forward(request,response);
-
-        MyConnection.endConnection();
+        response.sendRedirect("/admin/product");
     }
 }

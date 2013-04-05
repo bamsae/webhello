@@ -19,7 +19,7 @@ public class BoardDBRepository implements BoardRepository {
     }
 
     private String url = "jdbc:postgresql://localhost:5432/study";
-    private String usr = "jsp";
+    private String usr = "study";
     private String pwd = "1234";
 
     @Override

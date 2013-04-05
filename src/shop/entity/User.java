@@ -1,25 +1,36 @@
 package shop.entity;
 
-/**
- * Created with IntelliJ IDEA.
- * User: bungubbang
- * Date: 13. 3. 7.
- * Time: 오후 7:52
- * To change this template use File | Settings | File Templates.
- */
 public class User {
 
     public User() {}
 
-    private String id;
+    private int id;
+    private String name;
     private String password;
+    private int money;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
@@ -33,8 +44,10 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id='" + id + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", money=" + money +
                 '}';
     }
 }
