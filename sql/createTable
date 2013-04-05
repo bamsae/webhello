@@ -1,0 +1,50 @@
+
+CREATE TABLE board
+(
+  id serial NOT NULL,
+  writer character varying(256) NOT NULL,
+  pw character varying(256),
+  title character varying(256) NOT NULL,
+  content character varying(256) NOT NULL
+)
+
+CREATE TABLE boarduser
+(
+  id character varying(256) NOT NULL,
+  password character varying(256) NOT NULL
+)
+
+CREATE TABLE buylist
+(
+  userid integer,
+  productid integer,
+  productnum integer,
+  id serial NOT NULL,
+  state integer,
+  CONSTRAINT buylist_pkey PRIMARY KEY (id),
+  CONSTRAINT buylist_productid_fkey FOREIGN KEY (productid)
+      REFERENCES shopproduct (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT buylist_userid_fkey FOREIGN KEY (userid)
+      REFERENCES shopuser (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+
+CREATE TABLE shopproduct
+(
+  id serial NOT NULL,
+  name character varying(256),
+  state integer,
+  price integer,
+  quantity integer,
+  CONSTRAINT shopproduct_pkey PRIMARY KEY (id)
+)
+
+CREATE TABLE shopuser
+(
+  name character varying(256),
+  passwd character varying(256),
+  money integer,
+  id serial NOT NULL,
+  CONSTRAINT shopuser_pkey PRIMARY KEY (id)
+)
