@@ -2,45 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54ec3300-c9fd-496c-9610-c25232aaf6fc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/AddBuyListServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/AddProductFormServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/AddProductServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/AdminBuyListServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/AdminProductServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/BuyListServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/DelBuyListServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/ModifyBuyListServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/ModifyProductFormServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/ModifyProductServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/ProductListServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/controller/UserLoginServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/entity/BuyList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/entity/Product.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/entity/User.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/myConnection/MyConnection.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/repository/BuyListRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/repository/ProductRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/shop/repository/UserRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/shop/addProduct.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/shop/adminBuyList.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/shop/adminProduct.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/shop/buyList.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/shop/modifyProduct.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/shop/productList.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/shop/userLogin.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/myboard/filter/EncodeFilter.java" afterPath="$PROJECT_DIR$/src/filter/EncodeFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/webhello_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/webhello_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/webhello_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/webhello_war_exploded/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/myboard/controller/BoardLoginServlet.java" afterPath="$PROJECT_DIR$/src/myboard/controller/BoardLoginServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/myboard/repository/BoardDBRepository.java" afterPath="$PROJECT_DIR$/src/myboard/repository/BoardDBRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/myboard/repository/UserDBRepository.java" afterPath="$PROJECT_DIR$/src/myboard/repository/UserDBRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/hello.jsp" afterPath="$PROJECT_DIR$/web/hello.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webhello.iml" afterPath="$PROJECT_DIR$/webhello.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/shop/controller/UserLoginServlet.java" afterPath="$PROJECT_DIR$/src/shop/controller/UserLoginServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/shop/productList.jsp" afterPath="$PROJECT_DIR$/web/shop/productList.jsp" />
     </list>
     <ignored path="webhello.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -222,28 +186,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="userLogin.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/shop/userLogin.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UserLoginServlet.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shop/controller/UserLoginServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="67" selection-start="2900" selection-end="2900" vertical-scroll-proportion="0.0">
+            <state line="32" column="26" selection-start="991" selection-end="991" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloServlet.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HelloServlet.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hello/HelloServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="312" selection-end="312" vertical-scroll-proportion="0.12875536">
+            <state line="13" column="13" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddBuyListServlet.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shop/controller/AddBuyListServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="13" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -285,10 +249,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="productList.jsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="productList.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/shop/productList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="32" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
+            <state line="52" column="31" selection-start="1746" selection-end="1746" vertical-scroll-proportion="0.4">
               <folding />
             </state>
           </provider>
@@ -297,7 +261,7 @@
       <file leaf-file-name="buyList.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/shop/buyList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="32" selection-start="302" selection-end="335" vertical-scroll-proportion="0.0">
+            <state line="7" column="32" selection-start="302" selection-end="335" vertical-scroll-proportion="19.25">
               <folding />
             </state>
           </provider>
@@ -336,11 +300,11 @@
         <option value="$PROJECT_DIR$/web/shop/addProduct.jsp" />
         <option value="$PROJECT_DIR$/web/shop/adminBuyList.jsp" />
         <option value="$PROJECT_DIR$/web/shop/adminProduct.jsp" />
-        <option value="$PROJECT_DIR$/web/shop/productList.jsp" />
         <option value="$PROJECT_DIR$/web/shop/modifyProduct.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/web/shop/userLogin.jsp" />
         <option value="$PROJECT_DIR$/src/shop/controller/UserLoginServlet.java" />
+        <option value="$PROJECT_DIR$/web/shop/productList.jsp" />
       </list>
     </option>
   </component>
@@ -352,8 +316,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -383,6 +347,20 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webhello" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webhello" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -609,20 +587,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webhello" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webhello" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -643,7 +607,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="FullScreen" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="Downloaded.Files.Path" value="$PROJECT_DIR$/lib" />
@@ -1025,7 +989,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1039,13 +1003,14 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24948876" sideWeight="0.23765433" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924336" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.49675852" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952926" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2553419" sideWeight="0.6707441" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925585" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29951298" sideWeight="0.7289586" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27104136" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
@@ -1054,7 +1019,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46077034" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33027524" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1117,11 +1081,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/shop/controller/DelBuyListServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="44" selection-start="1284" selection-end="1284" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/shop/adminProduct.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="32" selection-start="333" selection-end="333" vertical-scroll-proportion="-5.0" />
@@ -1144,14 +1103,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/shop/modifyProduct.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="32" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="9" column="32" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/shop/userLogin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0">
+        <state line="8" column="0" selection-start="297" selection-end="297" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hello/HelloServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="13" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shop/controller/AddBuyListServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="13" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1166,9 +1133,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="2" selection-start="3225" selection-end="3710" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="94" column="2" selection-start="3225" selection-end="3710" vertical-scroll-proportion="0.0" />
       </provider>
       <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
         <state />
@@ -1187,20 +1152,6 @@
         <state line="31" column="0" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/shop/productList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="32" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/shop/buyList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="32" selection-start="302" selection-end="335" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shop/controller/ProductListServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="46" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.0" />
@@ -1208,14 +1159,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shop/controller/UserLoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="67" selection-start="2900" selection-end="2900" vertical-scroll-proportion="0.0">
+        <state line="32" column="26" selection-start="991" selection-end="991" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hello/HelloServlet.java">
+    <entry file="file://$PROJECT_DIR$/web/shop/buyList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="312" selection-end="312" vertical-scroll-proportion="0.12875536">
+        <state line="7" column="32" selection-start="302" selection-end="335" vertical-scroll-proportion="19.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/shop/productList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="31" selection-start="1746" selection-end="1746" vertical-scroll-proportion="0.4">
           <folding />
         </state>
       </provider>

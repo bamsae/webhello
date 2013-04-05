@@ -50,7 +50,7 @@
         var viewContents = function(id, prqua, price, money) {
             var qua = document.getElementById("quantity").value;
 
-            if(parseInt(qua) > 0) {
+            if(parseInt(qua) <= 0) {
                 window.alert("한개 이상 사시죠?");
             }
             else if(parseInt(qua) > prqua) {

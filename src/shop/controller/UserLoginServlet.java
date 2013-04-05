@@ -30,6 +30,7 @@ public class UserLoginServlet extends HttpServlet{
 
         System.out.println("checkckckck");
         Cookie[] cookies = request.getCookies();
+        if(cookies != null)
         for (Cookie cookie : cookies) {
             if(cookie.getName().equals("id")) {
                 request.setAttribute("id",cookie.getValue());
