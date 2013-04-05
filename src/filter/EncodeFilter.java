@@ -1,4 +1,4 @@
-package myboard.filter;
+package filter;
 
 import myboard.wrapper.RequestWrapper;
 
